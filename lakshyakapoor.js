@@ -71,7 +71,7 @@ function draw() {
       
     }else if(jwelleryG.isTouching(boy)) {
       jwelleryG.destroyEach();
-      treasureCollection= treasureCollection + 150;
+      treasureCollection= treasureCollection + 50;
       
     }else{
       if(swordGroup.isTouching(boy)) {
@@ -86,16 +86,16 @@ function draw() {
         cashG.visible=false;
         diamonds.visible=false
         jwelleryG.visible=false
-
+        path.velocityY=0;
         cashG.destroyEach();
-        diamondsG.destroyEach();
-        jwelleryG.destroyEach();
-        swordGroup.destroyEach();
-        
         cashG.setVelocityYEach(0);
+        diamondsG.destroyEach();
         diamondsG.setVelocityYEach(0);
+        jwelleryG.destroyEach();
         jwelleryG.setVelocityYEach(0);
-        swordGroup.setVelocityYEach(0);
+        swordGroup.destroyEach();
+       sword.setVelocityYEach(0);
+
      
     }
   }
@@ -121,7 +121,7 @@ function createCash() {
 
 function createDiamonds() {
   if (World.frameCount % 320 == 0) {
-  var diamonds = createSprite(Math.round(random(50, 350),40, 10, 10));
+  var diamonds = createSprite(Math.round(random(50, width-50),40, 10, 10));
   diamonds.addImage(diamondsImg);
   diamonds.scale=0.03;
   diamonds.velocityY = 3;
